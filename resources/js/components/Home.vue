@@ -1,29 +1,20 @@
 <template>
     <div>
-        <h1>Lista de perguntas</h1>
-        <div class="container-fluid">
-            <ul class="list-group">
-                <li class="list-group-item" v-for="(poll, id) in polls" :key="poll.id">{{poll.poll_description}}</li>
-            </ul>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <PollList></PollList>
+            </div>
+            <div class="col-md-2"></div>
         </div>
     </div>
 </template>
 
 <script>
+import PollList from "./enquete/PollList";
 export default {
-    data() {
-        return {
-            polls: [],
-        }
-    },
-    created() {
-        window.axios.get('http://localhost:8000/api/poll')
-        .then(resp => {
-            this.polls = resp.data
-            console.log(resp.data)
-        })
+    components: {PollList},
 
-    }
 }
 </script>
 

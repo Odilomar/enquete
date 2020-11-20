@@ -1941,6 +1941,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _enquete_PollList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enquete/PollList */ "./resources/js/components/enquete/PollList.vue");
 //
 //
 //
@@ -1952,19 +1953,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      polls: []
-    };
-  },
-  created: function created() {
-    var _this = this;
+//
 
-    window.axios.get('http://localhost:8000/api/poll').then(function (resp) {
-      _this.polls = resp.data;
-      console.log(resp.data);
-    });
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    PollList: _enquete_PollList__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -2025,6 +2018,20 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _model_Poll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../model/Poll */ "./resources/js/model/Poll.js");
+/* harmony import */ var _PollList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PollList */ "./resources/js/components/enquete/PollList.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2042,14 +2049,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    PollList: _PollList__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       poll: new _model_Poll__WEBPACK_IMPORTED_MODULE_0__["default"]()
     };
   },
   methods: {
-    store: function store() {}
+    store: function store() {
+      var _this = this;
+
+      window.axios.post('http://localhost:8000/api/poll', this.poll).then(function () {
+        _this.poll = new _model_Poll__WEBPACK_IMPORTED_MODULE_0__["default"](), function (err) {
+          return console.log(err);
+        };
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/enquete/PollList.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/enquete/PollList.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      polls: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    window.axios.get('http://localhost:8000/api/poll').then(function (resp) {
+      _this.polls = resp.data;
+      console.log(resp.data);
+    });
   }
 });
 
@@ -38326,19 +38383,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Lista de perguntas")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container-fluid" }, [
-      _c(
-        "ul",
-        { staticClass: "list-group" },
-        _vm._l(_vm.polls, function(poll, id) {
-          return _c("li", { key: poll.id, staticClass: "list-group-item" }, [
-            _vm._v(_vm._s(poll.poll_description))
-          ])
-        }),
-        0
-      )
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-2" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8" }, [_c("PollList")], 1),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" })
     ])
   ])
 }
@@ -38384,7 +38434,7 @@ var render = function() {
           _c(
             "li",
             [
-              _c("router-link", { attrs: { to: "/home" } }, [
+              _c("router-link", { attrs: { to: "/" } }, [
                 _vm._v("Lista de enquete")
               ])
             ],
@@ -38428,58 +38478,79 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "form",
-      {
-        attrs: { enctype: "multipart/form-data" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.store()
-          }
-        }
-      },
-      [
-        _c("div", { staticClass: "form-row align-items-center" }, [
-          _c("div", { staticClass: "col-sm-3 my-1" }, [
-            _c(
-              "label",
-              { staticClass: "sr-only", attrs: { for: "inlineFormInputName" } },
-              [_vm._v("Titulo")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.poll.poll_description,
-                  expression: "poll.poll_description"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "inlineFormInputName",
-                required: "",
-                placeholder: "Informe o titulo"
-              },
-              domProps: { value: _vm.poll.poll_description },
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-2" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c(
+            "form",
+            {
+              attrs: { enctype: "multipart/form-data" },
               on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.poll, "poll_description", $event.target.value)
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.store()
                 }
               }
-            })
-          ]),
+            },
+            [
+              _c("div", { staticClass: "form-row align-items-center" }, [
+                _c("div", { staticClass: "col-sm-3 my-1" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "sr-only",
+                      attrs: { for: "inlineFormInputName" }
+                    },
+                    [_vm._v("Titulo")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.poll.poll_description,
+                        expression: "poll.poll_description"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "inlineFormInputName",
+                      required: "",
+                      placeholder: "Informe o titulo"
+                    },
+                    domProps: { value: _vm.poll.poll_description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.poll,
+                          "poll_description",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(0)
+          _c("hr"),
+          _vm._v(" "),
+          _c("div", { staticClass: "container-fluid" }, [_c("pollList")], 1)
         ])
-      ]
-    )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" })
+    ])
   ])
 }
 var staticRenderFns = [
@@ -38496,6 +38567,45 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/enquete/PollList.vue?vue&type=template&id=1c84f74e&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/enquete/PollList.vue?vue&type=template&id=1c84f74e& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h1", [_vm._v("Lista de perguntas")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid" }, [
+      _c(
+        "ul",
+        { staticClass: "list-group" },
+        _vm._l(_vm.polls, function(poll, id) {
+          return _c("li", { key: poll.id, staticClass: "list-group-item" }, [
+            _vm._v(_vm._s(poll.poll_description))
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54113,6 +54223,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/enquete/PollList.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/enquete/PollList.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PollList_vue_vue_type_template_id_1c84f74e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PollList.vue?vue&type=template&id=1c84f74e& */ "./resources/js/components/enquete/PollList.vue?vue&type=template&id=1c84f74e&");
+/* harmony import */ var _PollList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PollList.vue?vue&type=script&lang=js& */ "./resources/js/components/enquete/PollList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PollList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PollList_vue_vue_type_template_id_1c84f74e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PollList_vue_vue_type_template_id_1c84f74e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/enquete/PollList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/enquete/PollList.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/enquete/PollList.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PollList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PollList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/enquete/PollList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PollList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/enquete/PollList.vue?vue&type=template&id=1c84f74e&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/enquete/PollList.vue?vue&type=template&id=1c84f74e& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PollList_vue_vue_type_template_id_1c84f74e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./PollList.vue?vue&type=template&id=1c84f74e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/enquete/PollList.vue?vue&type=template&id=1c84f74e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PollList_vue_vue_type_template_id_1c84f74e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PollList_vue_vue_type_template_id_1c84f74e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/model/Poll.js":
 /*!************************************!*\
   !*** ./resources/js/model/Poll.js ***!
@@ -54127,6 +54306,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Poll = function Poll() {
   var poll_description = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var option_description = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
 
   _classCallCheck(this, Poll);
 

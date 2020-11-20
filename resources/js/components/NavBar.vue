@@ -10,7 +10,7 @@
             <nav class="menu">
                 <ul>
                     <li>
-                        <router-link to="/home">Lista de enquete</router-link>
+                        <router-link to="/">Lista de enquete</router-link>
                     </li>
                     <li>
                         <router-link to="/enquete">Criar enquete</router-link>

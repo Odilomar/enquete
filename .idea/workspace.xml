@@ -20,17 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e59d3982-b3c0-47c1-baca-b884f378fc2a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/model/Poll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/enquete/PollList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/model/Option.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_20_165805_create_options_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_20_170354_create_polls_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_20_170354_create_polls_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Enquete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/enquete/Enquete.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/NavBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/enquete/Enquete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/enquete/Enquete.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/model/Poll.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/model/Poll.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +192,7 @@
       <updated>1605829539189</updated>
       <workItem from="1605829540331" duration="16607000" />
       <workItem from="1605887648042" duration="289000" />
-      <workItem from="1605887989250" duration="9955000" />
+      <workItem from="1605887989250" duration="14105000" />
     </task>
     <servers />
   </component>
@@ -214,6 +211,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="449" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605905417809">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="449" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738/1366.-313.1920.1080@0.0.1366.738" timestamp="1605905417809" />
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1605893075520">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
