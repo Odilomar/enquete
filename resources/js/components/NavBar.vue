@@ -6,9 +6,17 @@
                     <img :src="imagem.url" :alt="imagem.titulo" />
                 </router-link>
             </div>
-            <aside class="autenticacao botao">
-                <router-link to="/enquete" class="destaque">Enquete</router-link>
-            </aside>
+
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <router-link to="/home">Lista de enquete</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/enquete">Criar enquete</router-link>
+                    </li>
+                </ul>
+            </nav>
         </header>
     </div>
 </template>
@@ -36,6 +44,31 @@ body {
     margin: 0;
     background-color: lightgray;
 }
+
+.menu {
+    display: inline-block;
+    vertical-align: top;
+    height: 80px;
+    padding: 25px;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #777777;
+    font-size: 1.3rem;
+    padding: 15px;
+}
+
+
 .cabecalho {
     background: whitesmoke;
     border-bottom: solid 5px #777777;
@@ -53,12 +86,6 @@ body {
     height: 100%;
 }
 
-.autenticacao {
-    float: right;
-    height: 80px;
-    padding: 25px;
-}
-
 .autenticacao a {
     text-decoration: none;
     font-size: 1.3em;
@@ -70,14 +97,5 @@ body {
     color: whitesmoke;
     border-radius: 40px;
 }
-
-.destaque {
-    background-color: darkmagenta;
-    color: whitesmoke;
-    border-radius: 40px;
-    padding: 10px 25px;
-    margin: 10px;
-}
-
 
 </style>

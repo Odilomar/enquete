@@ -1,15 +1,9 @@
 <template>
     <div id="app">
         <NavBar></NavBar>
-        <div class="container-fluid">
-            Mais um teste
-            <router-link to="/">Inicial</router-link>
-            <router-link to="/enquete">Enquete</router-link>
-            <router-link to="/home">Home</router-link>
-            <div class="row">
-                <div class="container">
-                    <router-view></router-view>
-                </div>
+        <div class="row">
+            <div class="container-fluid">
+                <router-view></router-view>
             </div>
         </div>
     </div>
