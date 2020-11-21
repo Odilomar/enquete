@@ -26,6 +26,11 @@ class Controller extends BaseController
         return response()->json($register);
     }
 
+    public function show($id)
+    {
+        return response()->json($this->class::find($id));
+    }
+
     public function update(Request $request, $id) {
         $register = $this->class::find($id);
         $register->fill($request->all());

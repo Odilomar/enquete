@@ -4,7 +4,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="text-center">
-                    <h1>Criar pergunta</h1>
+                    <h1>Registrar opções da pergunta <strong>{{poll_show.id}} {{poll_show.poll_description}}</strong></h1>
                 </div>
                 <div class="container-fluid">
                     <form @submit.prevent="store()" enctype="multipart/form-data">
@@ -12,7 +12,7 @@
                             <div class="col-sm-3 my-1">
                                 <label class="sr-only" for="inlineFormInputName">Titulo</label>
                                 <input type="text" class="form-control" id="inlineFormInputName"
-                                       required v-model="poll.poll_description" placeholder="Informe a pergunta">
+                                       required v-model="option.option_description" placeholder="Informe a respostas">
                             </div>
                             <div class="col-auto my-1">
                                 <button type="submit" class="btn btn-primary">Registrar</button>
@@ -25,19 +25,16 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Perguntas</th>
+                                <th scope="col">Respostas</th>
                                 <th scope="col">Ação</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="(poll, id) in polls" :key="poll.id">
-                                <th scope="row">{{poll.id}}</th>
-                                <td>{{poll.poll_description}}</td>
+                            <tr v-for="(option, id) in options" :key="option.id">
+                                <th scope="row">{{option.id}}</th>
+                                <td>{{option.option_description}}</td>
                                 <td>
-                                    <router-link :to="`poll/option/${poll.id}`">
-                                        <button class="btn btn-info">Registrar respostas</button>
-                                    </router-link>
-                                    <button class="btn btn-danger" @click="destroy(poll.id)">Excluir</button>
+                                    <button class="btn btn-danger white" @click="destroy(option.id)">Excluir</button>
                                 </td>
                             </tr>
                             </tbody>
@@ -53,38 +50,49 @@
 
 <script>
 
-import Poll from "../../model/Poll";
-import PollList from "./PollList";
 export default {
-    components: {PollList},
     data() {
         return {
-            poll: new Poll(),
-            polls: [],
+            option: {
+                option_description: '',
+                poll_id: this.$route.params.id
+            },
+            options: [],
+            poll_id: this.$route.params.id,
+            poll_show: []
         }
     },
     methods: {
         store() {
-            window.axios.post('http://localhost:8000/api/poll', this.poll)
+            window.axios.post('http://localhost:8000/api/option', this.option)
                 .then( () => {
-                    this.poll = new Poll(), err => console.log(err)
+                    this.option.option_description = ''
+                    this.poll_id = this.$route.params.id
+                        , err => console.log(err)
                     this.index()
                 })
         },
         index() {
-            window.axios.get('http://localhost:8000/api/poll')
+            window.axios.get(`api/options/${this.poll_id}`)
                 .then(resp => {
-                    this.polls = resp.data
+                    this.options = resp.data
+                })
+        },
+        showPoll() {
+            window.axios.get(`http://localhost:8000/api/poll/${this.poll_id}`)
+                .then(resp => {
+                    this.poll_show = resp.data
                 })
         },
         destroy(id) {
-            window.axios.delete(`http://localhost:8000/api/poll/${id}`)
-            .then(() => this.index())
+            window.axios.delete(`http://localhost:8000/api/option/${id}`)
+                .then(() => this.index())
         }
     },
 
     created() {
         this.index()
+        this.showPoll()
     }
 }
 </script>

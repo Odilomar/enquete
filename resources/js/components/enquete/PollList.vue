@@ -2,9 +2,27 @@
     <div>
         <h1>Lista de perguntas</h1>
         <div class="container-fluid">
-            <ul class="list-group">
-                <li class="list-group-item" v-for="(poll, id) in polls" :key="poll.id">{{poll.poll_description}}</li>
-            </ul>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Respostas</th>
+                    <th scope="col">Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(poll, id) in polls" :key="poll.id">
+                    <th scope="row">{{poll.id}}</th>
+                    <td>{{poll.poll_description}}</td>
+                    <td>
+                        <router-link :to="`votacao/${poll.id}`">
+                            <button class="btn btn-info">Votar</button>
+                        </router-link>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </template>
@@ -20,9 +38,7 @@ export default {
         window.axios.get('http://localhost:8000/api/poll')
             .then(resp => {
                 this.polls = resp.data
-                console.log(resp.data)
             })
-
     }
 }
 </script>

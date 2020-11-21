@@ -3,44 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Option;
-use App\Models\Poll;
-use Illuminate\Http\Request;
 
-class PollController extends Controller
+class OptionController extends Controller
 {
+
     public function __construct()
     {
-        $this->class = Poll::class;
+        $this->class = Option::class;
     }
-    public function questions() {
-        $register = Poll::with('options')->get();
-        return $register;
-    }
-    public function storePollOption(Request $request)
+
+    public function createOption($poll_id)
     {
-
-        $poll = new Poll();
-        $poll->poll_description = $request['poll_description'];
-        $poll->save();
-
-        foreach ($request->options as $item) {
-            $option = new Option();
-            $option->option_description = $item;
-            $option->poll_id = $poll->id;
-            $option->save();
-        }
-
-        return response()->json($request);
+        $register = Option::where('poll_id', $poll_id)->get();
+        return response()->json($register);
     }
 
-    public function showPollOption($id) {
+    public function votacao($id)
+    {
+        $option = Option::find($id);
 
-        $register = Poll::with('options')->where('polls.id', $id)->get();
-
-        if(is_null($register)) {
-            return response()->json($register);
+        if(is_null($option)) {
+            return response()->json('',404);
         }
 
-        return response()->json('',404);
+        $option->amount+=1;
+        $option->save();
+        return $option->id;
     }
 }
