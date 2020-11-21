@@ -4,8 +4,8 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="text-center">
-                    <h1>Faça sua Votação</h1>
-                    <h2><strong>{{poll_show.id}} {{poll_show.poll_description}}</strong></h2>
+                    <h1>Faça sua Votação </h1>
+                    <h2><strong>{{poll_show.poll_description}}</strong></h2>
                 </div>
                 <div class="container-fluid">
 
@@ -26,14 +26,13 @@
                                 <td>{{option.option_description}}</td>
                                 <td class="text-center">{{option.amount}}</td>
                                 <td>
-                                    <button class="btn btn-success white" @click="votacao(option.id)">Votar</button>
+                                    <button class="btn btn-success white" @click="votacao(option.id)">Registrar seu voto</button>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-2"></div>
         </div>
@@ -55,14 +54,9 @@ export default {
         }
     },
     methods: {
-        store() {
-            window.axios.post('http://localhost:8000/api/option', this.option)
-                .then( () => {
-                    this.option.option_description = ''
-                    this.poll_id = this.$route.params.id
-                        , err => console.log(err)
-                    this.index()
-                })
+
+        views() {
+            window.axios.get(`api/poll/${this.poll_id}`).then()
         },
         index() {
             window.axios.get(`api/options/${this.poll_id}`)
@@ -88,6 +82,7 @@ export default {
     created() {
         this.index()
         this.showPoll()
+        this.views()
     }
 }
 </script>

@@ -20,17 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e59d3982-b3c0-47c1-baca-b884f378fc2a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/enquete/Option.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/enquete/Result.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/enquete/Votacao.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_162422_add_views_polls_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OptionController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PollController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PollController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PollController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Poll.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Poll.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/NavBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/enquete/Enquete.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/enquete/Enquete.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/enquete/PollList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/enquete/PollList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/enquete/Result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/enquete/Result.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/enquete/Votacao.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/enquete/Votacao.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
@@ -164,7 +164,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../softExpert/loja_vinhos/front-end" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../desafiu-enquete" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -199,7 +199,7 @@
       <workItem from="1605887648042" duration="289000" />
       <workItem from="1605887989250" duration="17295000" />
       <workItem from="1605919765500" duration="10986000" />
-      <workItem from="1605963199706" duration="1269000" />
+      <workItem from="1605963199706" duration="5736000" />
     </task>
     <servers />
   </component>
@@ -223,23 +223,25 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="449" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738/1366.-313.1920.1080@0.0.1366.738" timestamp="1605905417809" />
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605923204154">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605973451815">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738/1366.-313.1920.1080@0.0.1366.738" timestamp="1605923204154" />
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1605926741214">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1605973451815" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1605976925124">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738/1366.-313.1920.1080@0.0.1366.738" timestamp="1605926741214" />
     <state x="2017" y="-132" key="FileChooserDialogImpl/0.0.1366.738/1366.-313.1920.1080@1366.-313.1920.1080" timestamp="1605891206449" />
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1605976925124" />
     <state x="1366" y="-275" width="1339" height="725" key="dock-window-1" timestamp="1605925792105">
       <screen x="1366" y="-313" width="1920" height="1080" />
     </state>
     <state x="1366" y="-275" width="1339" height="725" key="dock-window-1/0.0.1366.738/1366.-313.1920.1080@0.0.1366.738" timestamp="1605925792105" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1605929141590">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1605976057646">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738/1366.-313.1920.1080@0.0.1366.738" timestamp="1605841625307" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1605929141590" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1605976057646" />
   </component>
 </project>

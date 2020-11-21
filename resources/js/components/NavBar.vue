@@ -16,7 +16,7 @@
                         <router-link to="/enquete">Criar enquete</router-link>
                     </li>
                     <li>
-                        <router-link to=/>Resultados das enquetes</router-link>
+                        <router-link to=/resultado>Resultados das enquetes</router-link>
                     </li>
                 </ul>
             </nav>

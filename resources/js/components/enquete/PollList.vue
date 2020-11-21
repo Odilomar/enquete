@@ -17,7 +17,7 @@
                     <td>{{poll.poll_description}}</td>
                     <td>
                         <router-link :to="`votacao/${poll.id}`">
-                            <button class="btn btn-info">Votar</button>
+                            <button class="btn btn-success">Fazer sua votaçao</button>
                         </router-link>
                     </td>
                 </tr>

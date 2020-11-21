@@ -9,7 +9,7 @@ class Poll extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['poll_description'];
+    protected $fillable = ['poll_description','views'];
 
     public function options(){
         return $this->hasMany(Option::class);

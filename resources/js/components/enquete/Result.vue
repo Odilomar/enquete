@@ -4,11 +4,13 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="text-center">
-                    <h1>Faça sua Votação</h1>
-                    <h2><strong>{{poll_show.id}} {{poll_show.poll_description}}</strong></h2>
+                    <h1>Resultado das pesquisas</h1>
                 </div>
-                <div class="container-fluid">
+                <div class="container-fluid " v-for="(poll, id) in polls" :key="poll.id">
                     <hr>
+                    <div>
+                        <h2>{{poll.poll_description}}</h2>
+                    </div>
                     <div class="container-fluid">
                         <table class="table">
                             <thead>
@@ -16,17 +18,13 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Respostas</th>
                                 <th scope="col">Quantidade votada</th>
-                                <th scope="col">Ação</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="(option, id) in options" :key="option.id">
+                            <tr v-for="(option, id) in poll.options" :key="option.id">
                                 <th scope="row">{{option.id}}</th>
                                 <td>{{option.option_description}}</td>
                                 <td class="text-center">{{option.amount}}</td>
-                                <td>
-                                    <button class="btn btn-success white" @click="votacao(option.id)">Votar</button>
-                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -43,49 +41,21 @@
 export default {
     data() {
         return {
-            option: {
-                option_description: '',
-                poll_id: this.$route.params.id
-            },
-            options: [],
-            poll_id: this.$route.params.id,
-            poll_show: []
+            polls: []
         }
     },
     methods: {
-        store() {
-            window.axios.post('http://localhost:8000/api/option', this.option)
-                .then( () => {
-                    this.option.option_description = ''
-                    this.poll_id = this.$route.params.id
-                        , err => console.log(err)
-                    this.index()
-                })
-        },
+
         index() {
-            window.axios.get(`api/options/${this.poll_id}`)
+            window.axios.get('http://localhost:8000/api/polls')
                 .then(resp => {
-                    this.options = resp.data
+                    this.polls = resp.data
                 })
-        },
-        showPoll() {
-            window.axios.get(`http://localhost:8000/api/poll/${this.poll_id}`)
-                .then(resp => {
-                    this.poll_show = resp.data
-                })
-        },
-        votacao(id) {
-            console.log(id)
-            window.axios.get(`http://localhost:8000/api/votacao/${id}`)
-                .then(
-                    () => this.index()
-                )
         }
     },
 
     created() {
         this.index()
-        this.showPoll()
     }
 }
 </script>

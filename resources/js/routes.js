@@ -4,6 +4,7 @@ import Enquete from "./components/enquete/Enquete";
 import Home from "./components/Home";
 import Option from "./components/enquete/Option";
 import Votacao from "./components/enquete/Votacao";
+import Result from "./components/enquete/Result";
 
 Vue.use(Router)
 
@@ -14,6 +15,6 @@ export default new Router({
         {path: '/', component: Home},
         {path: '/poll/option/:id', component: Option},
         {path: '/votacao/:id', component: Votacao},
-
+        {path: '/resultado', component: Result}
     ]
 })

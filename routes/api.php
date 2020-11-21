@@ -14,3 +14,4 @@ Route::get('show/poll/option/{id}', [PollController::class,'showPollOption']);
 Route::get('option/poll', [OptionController::class, 'optionPoll']);
 Route::get('options/{id}', [OptionController::class, 'createOption']);
 Route::get('votacao/{id}',[OptionController::class,'votacao']);
+Route::get('/poll/{id}/stats', [PollController::class, 'pollStats']);

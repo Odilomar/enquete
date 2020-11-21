@@ -13,6 +13,14 @@ class PollController extends Controller
         $this->class = Poll::class;
     }
 
+    public function show($id)
+    {
+        $resgister = Poll::find($id);
+        $resgister->views++ ;
+        $resgister->save();
+        return response()->json($resgister);
+    }
+
     public function questions() {
         $register = Poll::with('options')->get();
         return $register;
@@ -35,4 +43,29 @@ class PollController extends Controller
         return response()->json($poll->id);
     }
 
+    public function showPollOption($id) {
+
+        $register = Poll::with('options')->where('polls.id', $id)->get();
+
+        if(is_null($register)) {
+            return response()->json($register);
+        }
+
+        return response()->json('',404);
+    }
+
+    public function pollStats($id)
+    {
+//        {
+//             "views": 125,
+//              "votes": [
+//                  {"option_id": 1, "qty": 10},
+//                  {"option_id": 2, "qty": 35},
+//                  {"option_id": 3, "qty": 1},
+//              ]
+//        }
+        $register = Poll::with('options')->where('polls.id', $id)->get();
+
+        return response()->json($register);
+    }
 }
