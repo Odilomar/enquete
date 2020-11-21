@@ -48,24 +48,14 @@ class PollController extends Controller
         $register = Poll::with('options')->where('polls.id', $id)->get();
 
         if(is_null($register)) {
-            return response()->json($register);
+            return response()->json('',404);;
         }
-
-        return response()->json('',404);
+        return response()->json($register);
     }
 
     public function pollStats($id)
     {
-//        {
-//             "views": 125,
-//              "votes": [
-//                  {"option_id": 1, "qty": 10},
-//                  {"option_id": 2, "qty": 35},
-//                  {"option_id": 3, "qty": 1},
-//              ]
-//        }
         $register = Poll::with('options')->where('polls.id', $id)->get();
-
         return response()->json($register);
     }
 }
